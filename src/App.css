@@ -1,13 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0B0E12;
+  /* background-color: #0B0E12; */
+  background-color: #06080C;
   min-height: 100vh;
 }
 
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: #0B0E12;
+  background-color: #06080C;
   padding: 53px 42px;
 }
