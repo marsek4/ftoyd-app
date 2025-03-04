@@ -1,43 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import './App.css';
-import Header from './components/Header';
-import MatchTable from './components/MatchTable';
-import { Match } from './types/match';
+import Header from './components/header/Header';
+import MatchTable from './components/match-table/MatchTable';
+import { API_URL } from './constants/api';
 
 function App() {
-  const [matches, setMatches] = useState<Match[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchMatchData = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-      const response = await fetch('https://app.ftoyd.com/fronttemp-service/fronttemp');
-      const result = await response.json();
-      
-      if (result.ok) {
-        setMatches(result.data.matches);
-      } else {
-        setError('Failed to load matches');
-      }
-    } catch (err) {
-      setError('Failed to fetch matches');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchMatchData();
-  }, []);
+  const { data: matches = [], isFetching, error, refetch } = useQuery({
+    queryKey: ['matches'],
+    queryFn: getMatchData,
+  });
 
   return (
     <div className="App">
-      <Header onRefresh={fetchMatchData} isLoading={isLoading} error={error} />
-      <MatchTable matches={matches} isLoading={isLoading} error={error} />
+      <Header onRefresh={refetch} isLoading={isFetching} error={error?.message ?? null} />
+      <MatchTable matches={matches} isLoading={isFetching} error={error?.message ?? null} />
     </div>
   );
+}
+
+const getMatchData = async () => {
+  const response = await fetch(`${API_URL}/fronttemp`);
+  const result = await response.json();
+  
+  if (!result.ok) {
+    throw new Error('Failed to load matches');
+  }
+  
+  return result.data.matches;
 }
 
 export default App;
