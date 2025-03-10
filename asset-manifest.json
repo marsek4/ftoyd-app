@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/ftoyd-app/static/css/main.c601ad9d.css",
+    "main.js": "/ftoyd-app/static/js/main.16ecc0b4.js",
+    "static/js/453.c3317998.chunk.js": "/ftoyd-app/static/js/453.c3317998.chunk.js",
+    "static/media/MatchTrackerLogo.svg": "/ftoyd-app/static/media/MatchTrackerLogo.9712282e7b9c76cebb7e3eeb4fb3cc06.svg",
+    "static/media/TeamLogo.svg": "/ftoyd-app/static/media/TeamLogo.c1b2bef4d60f134a999e53f1d81353f5.svg",
+    "static/media/Refresh.svg": "/ftoyd-app/static/media/Refresh.06d330e580ad64db23f967a547f600bd.svg",
+    "static/media/ErrorLoading.svg": "/ftoyd-app/static/media/ErrorLoading.dcccc12a134b6059dddcd26170a2f478.svg",
+    "index.html": "/ftoyd-app/index.html",
+    "main.c601ad9d.css.map": "/ftoyd-app/static/css/main.c601ad9d.css.map",
+    "main.16ecc0b4.js.map": "/ftoyd-app/static/js/main.16ecc0b4.js.map",
+    "453.c3317998.chunk.js.map": "/ftoyd-app/static/js/453.c3317998.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c601ad9d.css",
+    "static/js/main.16ecc0b4.js"
+  ]
+}
